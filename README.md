@@ -112,7 +112,11 @@ node hotel.js
 ---
 
 # Integrantes
-- Nombre del alumno: ____________________
+- Nombre del alumno:
+- Nombre del alumno:
+- Nombre del alumno:
+- Nombre del alumno:
+- Nombre del alumno:
 
 ---
 
