@@ -158,3 +158,122 @@ function menu() {
   } while(opcion !== "19");
 
 }
+// ======================================================
+// 1 - CREAR RESERVA
+// ======================================================
+
+function crearReserva() {
+
+  let documento = prompt("Documento cliente:");
+
+  let cliente = clientes.find(
+    c => c.documento === documento
+  );
+
+  if(!cliente) {
+    alert("Cliente no encontrado");
+    return;
+  }
+
+  let numero = parseInt(
+    prompt("Número habitación:")
+  );
+
+  let habitacion = habitaciones.find(
+    h => h.numero === numero && h.disponible
+  );
+
+  if(!habitacion) {
+    alert("Habitación no disponible");
+    return;
+  }
+
+  let entrada = prompt("Fecha entrada:");
+  let salida = prompt("Fecha salida:");
+  let noches = parseInt(prompt("Cantidad noches:"));
+
+  let total = noches * habitacion.precio;
+
+  let reserva = {
+    id: reservas.length + 1,
+    cliente: cliente.nombre,
+    documento,
+    habitacion: numero,
+    entrada,
+    salida,
+    noches,
+    total,
+    estado: "Pendiente"
+  };
+
+  reservas.push(reserva);
+
+  habitacion.disponible = false;
+
+  alert("Reserva creada correctamente");
+
+}
+
+// ======================================================
+// 2 - CONSULTAR DISPONIBILIDAD
+// ======================================================
+
+function consultarDisponibilidad() {
+
+  let mensaje = "HABITACIONES DISPONIBLES\n\n";
+
+  habitaciones.forEach(h => {
+
+    if(h.disponible) {
+
+      mensaje +=
+        "Habitación: " + h.numero +
+        " | Tipo: " + h.tipo + "\n";
+
+    }
+
+  });
+
+  alert(mensaje);
+
+}
+
+// ======================================================
+// 3 - SELECCIONAR HABITACION
+// ======================================================
+
+function seleccionarHabitacion() {
+
+  let mensaje = "SELECCIÓN HABITACIÓN\n\n";
+
+  habitaciones.forEach(h => {
+
+    mensaje +=
+      "Número: " + h.numero +
+      "\nTipo: " + h.tipo +
+      "\nPrecio: $" + h.precio +
+      "\nCapacidad: " + h.capacidad +
+      "\nServicios: " + h.servicios +
+      "\n------------------\n";
+
+  });
+
+  alert(mensaje);
+
+}
+
+// ======================================================
+// 4 - DEFINIR FECHAS
+// ======================================================
+
+function definirFechas() {
+
+  let entrada = prompt("Ingrese fecha entrada:");
+  let salida = prompt("Ingrese fecha salida:");
+
+  alert(
+    "Fecha entrada: " + entrada +
+    "\nFecha salida: " + salida
+  );
+
+}
