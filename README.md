@@ -1,5 +1,5 @@
 
-# README - Sistema de Reserva de Hotel
+# Sistema de Reserva de Hotel
 
 ## Descripción
 Este proyecto consiste en el desarrollo de un sistema básico de reserva de hotel realizado en JavaScript para ejecutar por consola.
