@@ -260,3 +260,5 @@ function seleccionarHabitacion() {
   alert(mensaje);
 
 }
+//
+
