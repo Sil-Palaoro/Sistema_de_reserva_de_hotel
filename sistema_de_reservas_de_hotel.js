@@ -1,4 +1,4 @@
-//======================================================
+// ======================================================
 // SISTEMA DE RESERVA DE HOTEL
 // 18 HISTORIAS DE USUARIO
 // ======================================================
@@ -158,6 +158,7 @@ function menu() {
   } while(opcion !== "19");
 
 }
+
 // ======================================================
 // 1 - CREAR RESERVA
 // ======================================================
@@ -213,6 +214,7 @@ function crearReserva() {
   alert("Reserva creada correctamente");
 
 }
+
 // ======================================================
 // 2 - CONSULTAR DISPONIBILIDAD
 // ======================================================
@@ -260,7 +262,7 @@ function seleccionarHabitacion() {
   alert(mensaje);
 
 }
-//
+
 // ======================================================
 // 4 - DEFINIR FECHAS
 // ======================================================
@@ -360,5 +362,28 @@ function cancelarReserva() {
   habitacion.disponible = true;
 
   alert("Reserva cancelada");
+
+}
+
+// ======================================================
+// 8 - VER RESERVAS
+// ======================================================
+
+function verReservas() {
+
+  let mensaje = "RESERVAS\n\n";
+
+  reservas.forEach(r => {
+
+    mensaje +=
+      "ID: " + r.id +
+      "\nCliente: " + r.cliente +
+      "\nHabitación: " + r.habitacion +
+      "\nEstado: " + r.estado +
+      "\n------------------\n";
+
+  });
+
+  alert(mensaje);
 
 }
