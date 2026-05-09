@@ -1,4 +1,4 @@
-//======================================================
+// ======================================================
 // SISTEMA DE RESERVA DE HOTEL
 // 18 HISTORIAS DE USUARIO
 // ======================================================
@@ -158,6 +158,7 @@ function menu() {
   } while(opcion !== "19");
 
 }
+
 // ======================================================
 // 1 - CREAR RESERVA
 // ======================================================
@@ -213,6 +214,7 @@ function crearReserva() {
   alert("Reserva creada correctamente");
 
 }
+
 // ======================================================
 // 2 - CONSULTAR DISPONIBILIDAD
 // ======================================================
@@ -260,7 +262,7 @@ function seleccionarHabitacion() {
   alert(mensaje);
 
 }
-//
+
 // ======================================================
 // 4 - DEFINIR FECHAS
 // ======================================================
@@ -274,5 +276,114 @@ function definirFechas() {
     "Fecha entrada: " + entrada +
     "\nFecha salida: " + salida
   );
+
+}
+
+// ======================================================
+// 5 - CALCULAR PRECIO TOTAL
+// ======================================================
+
+function calcularPrecioTotal() {
+
+  let numero = parseInt(
+    prompt("Número habitación:")
+  );
+
+  let habitacion = habitaciones.find(
+    h => h.numero === numero
+  );
+
+  if(!habitacion) {
+    alert("Habitación inexistente");
+    return;
+  }
+
+  let noches = parseInt(
+    prompt("Cantidad noches:")
+  );
+
+  let total = noches * habitacion.precio;
+
+  alert(
+    "Precio Total: $" + total
+  );
+
+}
+
+// ======================================================
+// 6 - MODIFICAR RESERVA
+// ======================================================
+
+function modificarReserva() {
+
+  let id = parseInt(
+    prompt("ID reserva:")
+  );
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  reserva.entrada = prompt("Nueva fecha entrada:");
+  reserva.salida = prompt("Nueva fecha salida:");
+
+  alert("Reserva modificada");
+
+}
+
+// ======================================================
+// 7 - CANCELAR RESERVA
+// ======================================================
+
+function cancelarReserva() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  reserva.estado = "Cancelada";
+
+  let habitacion = habitaciones.find(
+    h => h.numero === reserva.habitacion
+  );
+
+  habitacion.disponible = true;
+
+  alert("Reserva cancelada");
+
+}
+
+// ======================================================
+// 8 - VER RESERVAS
+// ======================================================
+
+function verReservas() {
+
+  let mensaje = "RESERVAS\n\n";
+
+  reservas.forEach(r => {
+
+    mensaje +=
+      "ID: " + r.id +
+      "\nCliente: " + r.cliente +
+      "\nHabitación: " + r.habitacion +
+      "\nEstado: " + r.estado +
+      "\n------------------\n";
+
+  });
+
+  alert(mensaje);
 
 }
