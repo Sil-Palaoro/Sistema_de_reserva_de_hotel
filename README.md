@@ -1,4 +1,4 @@
-````markdown
+
 # README - Sistema de Reserva de Hotel
 
 ## Descripción
@@ -128,4 +128,4 @@ node hotel.js
 
 # Fecha
 - ____ / ____ / ______
-````
+
