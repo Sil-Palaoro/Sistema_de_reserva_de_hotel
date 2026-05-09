@@ -1,4 +1,4 @@
-======================================================
+//======================================================
 // SISTEMA DE RESERVA DE HOTEL
 // 18 HISTORIAS DE USUARIO
 // ======================================================
@@ -156,5 +156,30 @@ function menu() {
     }
 
   } while(opcion !== "19");
+
+}
+// =====================================================
+// VER RESERVAS
+// =====================================================
+
+function verReservas() {
+
+  let mensaje = "===== RESERVAS =====\n\n";
+
+  reservas.forEach(r => {
+
+    mensaje +=
+      "ID: " + r.id +
+      "\nCliente: " + r.cliente +
+      "\nHabitación: " + r.habitacion +
+      "\nEntrada: " + r.fechaEntrada +
+      "\nSalida: " + r.fechaSalida +
+      "\nEstado: " + r.estado +
+      "\nTotal: $" + r.total +
+      "\n----------------------\n";
+
+  });
+
+  alert(mensaje);
 
 }
