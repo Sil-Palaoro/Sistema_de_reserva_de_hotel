@@ -112,24 +112,24 @@ node hotel.js
 ---
 
 # Integrantes
-- Nombre del alumno:
-- Nombre del alumno:
-- Nombre del alumno:
-- Nombre del alumno:
-- Nombre del alumno:
+- Nombre del alumno: Karen Tymoszcuk
+- Nombre del alumno: Micaela Coradini
+- Nombre del alumno: Lucas Cioccale
+- Nombre del alumno: Silvina Palaoro
+- Nombre del alumno: Alejandra Pizarro
 
 ---
 
 # Materia
-- ____________________
+- Alfabetizacion Digital y Introduccion al Analisis Sistemico
 
 ---
 
 # Profesor
-- ____________________
+- Narciso
 
 ---
 
 # Fecha
-- ____ / ____ / ______
+- 6 /05 / 2026
 
