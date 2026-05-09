@@ -1,4 +1,4 @@
-======================================================
+//======================================================
 // SISTEMA DE RESERVA DE HOTEL
 // 18 HISTORIAS DE USUARIO
 // ======================================================
@@ -211,69 +211,5 @@ function crearReserva() {
   habitacion.disponible = false;
 
   alert("Reserva creada correctamente");
-
-}
-
-// ======================================================
-// 2 - CONSULTAR DISPONIBILIDAD
-// ======================================================
-
-function consultarDisponibilidad() {
-
-  let mensaje = "HABITACIONES DISPONIBLES\n\n";
-
-  habitaciones.forEach(h => {
-
-    if(h.disponible) {
-
-      mensaje +=
-        "Habitación: " + h.numero +
-        " | Tipo: " + h.tipo + "\n";
-
-    }
-
-  });
-
-  alert(mensaje);
-
-}
-
-// ======================================================
-// 3 - SELECCIONAR HABITACION
-// ======================================================
-
-function seleccionarHabitacion() {
-
-  let mensaje = "SELECCIÓN HABITACIÓN\n\n";
-
-  habitaciones.forEach(h => {
-
-    mensaje +=
-      "Número: " + h.numero +
-      "\nTipo: " + h.tipo +
-      "\nPrecio: $" + h.precio +
-      "\nCapacidad: " + h.capacidad +
-      "\nServicios: " + h.servicios +
-      "\n------------------\n";
-
-  });
-
-  alert(mensaje);
-
-}
-
-// ======================================================
-// 4 - DEFINIR FECHAS
-// ======================================================
-
-function definirFechas() {
-
-  let entrada = prompt("Ingrese fecha entrada:");
-  let salida = prompt("Ingrese fecha salida:");
-
-  alert(
-    "Fecha entrada: " + entrada +
-    "\nFecha salida: " + salida
-  );
 
 }
