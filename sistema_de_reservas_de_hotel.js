@@ -454,3 +454,29 @@ function gestionarEstados() {
   alert("Estado actualizado");
 
 }
+
+// ======================================================
+// 12 - GENERAR COMPROBANTE
+// ======================================================
+
+function generarComprobante() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  alert(
+    "===== COMPROBANTE =====\n\n" +
+    "Cliente: " + reserva.cliente +
+    "\nHabitación: " + reserva.habitacion +
+    "\nTotal: $" + reserva.total
+  );
+
+}
