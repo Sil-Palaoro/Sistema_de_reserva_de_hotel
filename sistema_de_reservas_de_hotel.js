@@ -601,6 +601,19 @@ function gestionHabitaciones() {
   }
 
 }
+// ======================================================
+// 17 - REPORTES
+// ======================================================
+
+function reportes() {
+
+  alert(
+    "Total clientes: " + clientes.length +
+    "\nTotal reservas: " + reservas.length
+  );
+
+}
+
 
 
 
