@@ -533,28 +533,45 @@ function checkOut() {
 }
 
 // ======================================================
-// 15 - GESTION PAGOS
+// 16 - GESTION HABITACIONES
 // ======================================================
 
-function gestionPagos() {
+function gestionHabitaciones() {
 
-  let id = parseInt(prompt("ID reserva:"));
-
-  let reserva = reservas.find(
-    r => r.id === id
+  let accion = prompt(
+    "1- Agregar\n2- Eliminar"
   );
 
-  if(!reserva) {
-    alert("Reserva no encontrada");
-    return;
+  if(accion === "1") {
+
+    let numero = parseInt(prompt("Número:"));
+    let tipo = prompt("Tipo:");
+    let precio = parseInt(prompt("Precio:"));
+
+    habitaciones.push({
+      numero,
+      tipo,
+      precio,
+      capacidad: 2,
+      servicios: "WiFi",
+      disponible: true
+    });
+
+    alert("Habitación agregada");
+
   }
 
-  let metodo = prompt(
-    "Método pago:"
-  );
+  else if(accion === "2") {
 
-  reserva.metodoPago = metodo;
+    let numero = parseInt(prompt("Número:"));
 
-  alert("Pago registrado");
+    habitaciones = habitaciones.filter(
+      h => h.numero !== numero
+    );
+
+    alert("Habitación eliminada");
+
+  }
 
 }
+
