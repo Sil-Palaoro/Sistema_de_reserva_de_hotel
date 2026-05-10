@@ -480,3 +480,26 @@ function generarComprobante() {
   );
 
 }
+// ======================================================
+// 13 - CHECK IN
+// ======================================================
+
+function checkIn() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  reserva.estado = "En Curso";
+
+  alert("Check-in realizado");
+
+}
+
