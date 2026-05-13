@@ -8,6 +8,30 @@ El sistema permite administrar clientes, habitaciones y reservas mediante un men
 
 ---
 
+# Integrantes
+- Nombre del alumno: Karen Tymoszcuk
+- Nombre del alumno: Micaela Coradini
+- Nombre del alumno: Lucas Cioccale
+- Nombre del alumno: Silvina Palaoro
+- Nombre del alumno: Alejandra Pizarro
+
+---
+
+# Materia
+- Alfabetizacion Digital y Introduccion al Analisis Sistemico
+
+---
+
+# Profesor
+- Narciso Pérez
+
+---
+
+# Fecha
+- 6 /05 / 2026
+
+--- 
+
 # Objetivo del Proyecto
 Desarrollar un sistema simple que permita simular el funcionamiento básico de un hotel, aplicando conceptos de programación, estructuras de datos y lógica.
 
@@ -90,13 +114,13 @@ El sistema utiliza:
 1. Guardar el archivo como:
 
 ```text
-hotel.js
+sistema_de_reservas_de_hotel.js
 ```
 
 2. Ejecutar el siguiente comando:
 
 ```bash
-node hotel.js
+node sistema_de_reservas_de_hotel.js
 ```
 
 ---
@@ -109,27 +133,6 @@ node hotel.js
 4. Realizar check-in
 5. Realizar check-out
 
----
 
-# Integrantes
-- Nombre del alumno: Karen Tymoszcuk
-- Nombre del alumno: Micaela Coradini
-- Nombre del alumno: Lucas Cioccale
-- Nombre del alumno: Silvina Palaoro
-- Nombre del alumno: Alejandra Pizarro
 
----
-
-# Materia
-- Alfabetizacion Digital y Introduccion al Analisis Sistemico
-
----
-
-# Profesor
-- Narciso
-
----
-
-# Fecha
-- 6 /05 / 2026
 
