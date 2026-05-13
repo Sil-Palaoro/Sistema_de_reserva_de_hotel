@@ -70,6 +70,7 @@ Las reservas pueden tener los siguientes estados:
 ---
 
 # Tecnologías Utilizadas
+- ChatGPT https://chatgpt.com/c/69ff9245-f670-83e9-9d95-158709e3f33a
 - JavaScript
 - Consola del navegador / Node.js
 
