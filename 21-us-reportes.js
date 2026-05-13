@@ -30,4 +30,3 @@ function controlDisponibilidad() {
 
   alert(mensaje);
 
-}
