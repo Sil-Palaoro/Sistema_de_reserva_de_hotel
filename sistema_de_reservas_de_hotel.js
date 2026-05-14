@@ -1,4 +1,4 @@
-//======================================================
+// ======================================================
 // SISTEMA DE RESERVA DE HOTEL
 // 18 HISTORIAS DE USUARIO
 // ======================================================
@@ -158,6 +158,7 @@ function menu() {
   } while(opcion !== "19");
 
 }
+
 // ======================================================
 // 1 - CREAR RESERVA
 // ======================================================
@@ -213,6 +214,7 @@ function crearReserva() {
   alert("Reserva creada correctamente");
 
 }
+
 // ======================================================
 // 2 - CONSULTAR DISPONIBILIDAD
 // ======================================================
@@ -260,7 +262,7 @@ function seleccionarHabitacion() {
   alert(mensaje);
 
 }
-//
+
 // ======================================================
 // 4 - DEFINIR FECHAS
 // ======================================================
@@ -333,3 +335,313 @@ function modificarReserva() {
   alert("Reserva modificada");
 
 }
+
+// ======================================================
+// 7 - CANCELAR RESERVA
+// ======================================================
+
+function cancelarReserva() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  reserva.estado = "Cancelada";
+
+  let habitacion = habitaciones.find(
+    h => h.numero === reserva.habitacion
+  );
+
+  habitacion.disponible = true;
+
+  alert("Reserva cancelada");
+
+}
+
+// ======================================================
+// 8 - VER RESERVAS
+// ======================================================
+
+function verReservas() {
+
+  let mensaje = "RESERVAS\n\n";
+
+  reservas.forEach(r => {
+
+    mensaje +=
+      "ID: " + r.id +
+      "\nCliente: " + r.cliente +
+      "\nHabitación: " + r.habitacion +
+      "\nEstado: " + r.estado +
+      "\n------------------\n";
+
+  });
+
+  alert(mensaje);
+
+}
+// ======================================================
+// 9 - REGISTRAR CLIENTE
+// ======================================================
+
+function registrarCliente() {
+
+  let nombre = prompt("Nombre:");
+  let documento = prompt("Documento:");
+  let telefono = prompt("Teléfono:");
+
+  clientes.push({
+    nombre,
+    documento,
+    telefono
+  });
+
+  alert("Cliente registrado");
+
+}
+// ======================================================
+// 10 - CONFIRMAR RESERVA
+// ======================================================
+
+function confirmarReserva() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  reserva.estado = "Confirmada";
+
+  alert("Reserva confirmada");
+
+}
+// ======================================================
+// 11 - GESTION ESTADOS
+// ======================================================
+
+function gestionarEstados() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  let estado = prompt(
+    "Nuevo estado:"
+  );
+
+  reserva.estado = estado;
+
+  alert("Estado actualizado");
+
+}
+
+// ======================================================
+// 12 - GENERAR COMPROBANTE
+// ======================================================
+
+function generarComprobante() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  alert(
+    "===== COMPROBANTE =====\n\n" +
+    "Cliente: " + reserva.cliente +
+    "\nHabitación: " + reserva.habitacion +
+    "\nTotal: $" + reserva.total
+  );
+
+}
+// ======================================================
+// 13 - CHECK IN
+// ======================================================
+
+function checkIn() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  reserva.estado = "En Curso";
+
+  alert("Check-in realizado");
+
+}
+
+// ======================================================
+// 14 - CHECK OUT
+// ======================================================
+
+function checkOut() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  reserva.estado = "Finalizada";
+
+  let habitacion = habitaciones.find(
+    h => h.numero === reserva.habitacion
+  );
+
+  habitacion.disponible = true;
+
+  alert("Check-out realizado");
+
+}
+// ======================================================
+// 15 - GESTION PAGOS
+// ======================================================
+
+function gestionPagos() {
+
+  let id = parseInt(prompt("ID reserva:"));
+
+  let reserva = reservas.find(
+    r => r.id === id
+  );
+
+  if(!reserva) {
+    alert("Reserva no encontrada");
+    return;
+  }
+
+  let metodo = prompt(
+    "Método pago:"
+  );
+
+  reserva.metodoPago = metodo;
+
+  alert("Pago registrado");
+
+}
+
+
+// ======================================================
+// 16 - GESTION HABITACIONES
+// ======================================================
+
+function gestionHabitaciones() {
+
+  let accion = prompt(
+    "1- Agregar\n2- Eliminar"
+  );
+
+  if(accion === "1") {
+
+    let numero = parseInt(prompt("Número:"));
+    let tipo = prompt("Tipo:");
+    let precio = parseInt(prompt("Precio:"));
+
+    habitaciones.push({
+      numero,
+      tipo,
+      precio,
+      capacidad: 2,
+      servicios: "WiFi",
+      disponible: true
+    });
+
+    alert("Habitación agregada");
+
+  }
+
+  else if(accion === "2") {
+
+    let numero = parseInt(prompt("Número:"));
+
+    habitaciones = habitaciones.filter(
+      h => h.numero !== numero
+    );
+
+    alert("Habitación eliminada");
+
+  }
+
+}
+
+// ======================================================
+// 17 - REPORTES
+// ======================================================
+
+function reportes() {
+
+  alert(
+    "Total clientes: " + clientes.length +
+    "\nTotal reservas: " + reservas.length
+  );
+
+}
+
+// ======================================================
+// 18 - CONTROL DISPONIBILIDAD
+// ======================================================
+
+function controlDisponibilidad() {
+
+  let mensaje = "CONTROL DISPONIBILIDAD\n\n";
+
+  habitaciones.forEach(h => {
+
+    mensaje +=
+      "Habitación " + h.numero +
+      " -> Disponible: " +
+      h.disponible + "\n";
+
+  });
+
+  alert(mensaje);
+
+}
+
+// ======================================================
+// INICIAR SISTEMA
+// ======================================================
+
+menu();
+
+
+
+
