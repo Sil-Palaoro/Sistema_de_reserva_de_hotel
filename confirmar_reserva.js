@@ -17,6 +17,6 @@ function confirmarReserva() {
 
   reserva.estado = "Confirmada";
 
-  alert("Reserva confirmada");
+  alert("Reserva nueva confirmada");
 
 }
